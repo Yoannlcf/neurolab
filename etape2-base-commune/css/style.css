@@ -1,0 +1,634 @@
+/* =========================================================
+   NeuroLab — feuille de style commune à toutes les pages
+   Ordre : 1. variables  2. base  3. composants communs
+           4. header  5. footer  6. sections de l'accueil
+           7. pages internes  8. responsive
+   ========================================================= */
+
+
+/* ---------- 1. VARIABLES (charte graphique de la maquette) ---------- */
+/* Une couleur ou une taille n'est écrite qu'une fois : pour changer
+   la charte, on modifie seulement ces lignes. */
+:root {
+  --color-dark: #0B1026;        /* bleu nuit : header, hero, footer */
+  --color-dark-2: #1B2140;      /* bleu nuit clair : fonds de médias */
+  --color-primary: #6C5CE7;     /* violet : boutons et liens (= action) */
+  --color-primary-light: #EEEBFF;
+  --color-accent: #00CEC9;      /* cyan : repères (lien actif, fil d'Ariane) */
+  --color-bg: #F5F6FA;          /* fond clair des zones de lecture */
+  --color-white: #FFFFFF;
+  --color-text: #1E1E2E;
+  --color-muted: #6B7080;       /* texte secondaire */
+  --color-soft: #B8BCD0;        /* texte secondaire sur fond sombre */
+  --color-line: #C9CDD8;
+  --color-placeholder: #DADDE6;
+
+  --font-title: "Space Grotesk", Arial, sans-serif;
+  --font-text: "Inter", Arial, sans-serif;
+
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(10, 15, 38, 0.08);
+  --container: 1280px;          /* 1440 px de maquette - 2 x 80 px de marge */
+  --gutter: 80px;               /* marge horizontale des sections */
+}
+
+
+/* ---------- 2. BASE ---------- */
+/* box-sizing: border-box : la largeur d'un élément inclut son padding
+   et sa bordure, ce qui rend les calculs de mise en page prévisibles. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1.125rem;          /* 18 px */
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-title);
+  line-height: 1.15;
+}
+
+h1 { font-size: 3.5rem; }       /* 56 px */
+h2 { font-size: 2.25rem; }      /* 36 px */
+h3 { font-size: 1.5rem; }       /* 24 px */
+
+p {
+  margin: 0;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;              /* une image ne dépasse jamais son conteneur */
+}
+
+a {
+  color: var(--color-primary);
+}
+
+/* Contour visible au clavier (accessibilité) */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+
+/* ---------- 3. COMPOSANTS COMMUNS ---------- */
+/* Centre le contenu et limite sa largeur sur les grands écrans */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.section--white {
+  background-color: var(--color-white);
+}
+
+.section__title {
+  margin-bottom: 40px;
+}
+
+/* Petit sur-titre en majuscules au-dessus d'un titre */
+.eyebrow {
+  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+/* Boutons : <a> ou <button> avec la classe .btn */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 2px solid var(--color-primary);
+  border-radius: 999px;         /* forme « pilule » */
+  font: 600 1rem var(--font-text);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--ghost {                   /* bouton secondaire : contour seulement */
+  background-color: transparent;
+  border-color: var(--color-white);
+}
+
+.btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn--light {                   /* bouton blanc sur fond violet */
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+/* Carte (carrousel, liens vers les articles, etc.) */
+.card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.card__media {
+  height: 180px;
+  background-color: var(--color-placeholder);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.card__text {
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.card__link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------- 4. HEADER ---------- */
+.site-header {
+  position: sticky;             /* reste visible en haut pendant le défilement */
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-dark);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 1.375rem var(--font-title);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.nav__list {
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__link {
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.nav__link:hover,
+.nav__link--active {            /* page en cours : en cyan */
+  color: var(--color-accent);
+}
+
+/* Le bouton burger n'apparaît que sur mobile (voir partie 8) */
+.nav__toggle {
+  display: none;
+  padding: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 2px;
+  background-color: var(--color-white);
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+
+/* ---------- 5. FOOTER ---------- */
+.site-footer {
+  padding: 56px 0 32px;
+  color: var(--color-soft);
+  background-color: var(--color-dark);
+}
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-dark-2);
+}
+
+.site-footer__about {
+  margin-top: 12px;
+  max-width: 340px;
+  font-size: 0.875rem;
+}
+
+.site-footer__title {
+  margin: 0 0 10px;
+  font: 700 0.875rem var(--font-text);
+  color: var(--color-white);
+}
+
+.site-footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  line-height: 2;
+}
+
+.site-footer__list a {
+  color: var(--color-soft);
+  text-decoration: none;
+}
+
+.site-footer__list a:hover {
+  color: var(--color-accent);
+}
+
+.site-footer__copy {
+  margin-top: 24px;
+  font-size: 0.8125rem;
+}
+
+
+/* ---------- 6. ACCUEIL ---------- */
+/* Hero : texte à gauche, animation à droite */
+.hero {
+  padding: 112px 0;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero .eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+}
+
+.hero__lead {
+  color: var(--color-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Zone du futur canvas animé (étape 3) : un dégradé sert de fond
+   tant que le JavaScript n'a pas dessiné le réseau de neurones. */
+.hero__visual {
+  width: 100%;
+  height: 420px;
+  border-radius: var(--radius);
+  background: radial-gradient(circle at 70% 30%, rgba(108, 92, 231, 0.35), transparent 60%),
+              radial-gradient(circle at 25% 75%, rgba(0, 206, 201, 0.25), transparent 55%),
+              var(--color-dark-2);
+}
+
+/* Carrousel des thèmes */
+.carousel__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.carousel__arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel__arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+
+.carousel__arrow:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.carousel__track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-placeholder);
+  cursor: pointer;
+}
+
+.carousel__dot--active {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-primary);
+}
+
+/* Couleurs des visuels provisoires des cartes (en attendant les images) */
+.card__media--1 { background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); }
+.card__media--2 { background: linear-gradient(135deg, var(--color-dark-2), var(--color-primary)); }
+.card__media--3 { background: linear-gradient(135deg, var(--color-accent), var(--color-dark-2)); }
+
+/* Chiffres clés */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  text-align: center;
+  background-color: var(--color-bg);
+}
+
+.stat__value {
+  font: 700 3rem/1.1 var(--font-title);
+  color: var(--color-primary);
+}
+
+.stat__label {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+.stat__source {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* Appel à l'action final */
+.cta {
+  padding: 72px 0;
+  text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta__text {
+  color: var(--color-primary-light);
+}
+
+
+/* ---------- 7. PAGES INTERNES ---------- */
+/* Bandeau sombre en haut de chaque page de contenu */
+.page-banner {
+  padding: 72px 0;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+.breadcrumb {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li + li::before {   /* séparateur « / » entre les liens */
+  content: " / ";
+  color: var(--color-soft);
+}
+
+.breadcrumb a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.breadcrumb [aria-current] {
+  color: var(--color-soft);
+}
+
+.page-banner__lead {
+  margin-top: 16px;
+  max-width: 800px;
+  color: var(--color-soft);
+}
+
+
+/* ---------- 8. RESPONSIVE ---------- */
+/* Tablette (768 px et moins) */
+@media (max-width: 768px) {
+  :root {
+    --gutter: 20px;
+  }
+
+  body {
+    font-size: 0.9375rem;       /* 15 px */
+  }
+
+  h1 { font-size: 2.125rem; }   /* 34 px */
+  h2 { font-size: 1.625rem; }   /* 26 px */
+  h3 { font-size: 1.25rem; }    /* 20 px */
+
+  .section,
+  .hero {
+    padding: 48px 0;
+  }
+
+  .page-banner {
+    padding: 40px 0;
+  }
+
+  /* Menu burger : le bouton apparaît, la liste est cachée
+     jusqu'à ce que main.js ajoute la classe .nav--open */
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px var(--gutter) 16px;
+    border-top: 1px solid var(--color-dark-2);
+    background-color: var(--color-dark);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);  /* détache le menu du contenu */
+  }
+
+  .nav--open .nav__list {
+    display: flex;
+  }
+
+  .nav__link {
+    display: block;
+    padding: 12px 0;
+  }
+
+  /* Le burger se transforme en croix quand le menu est ouvert */
+  .nav--open .nav__toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav--open .nav__toggle-bar:nth-child(2) { opacity: 0; }
+  .nav--open .nav__toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Les colonnes s'empilent */
+  .hero__inner,
+  .carousel__track {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero__visual {
+    height: 220px;
+  }
+
+  .carousel__track {
+    gap: 24px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat {
+    padding: 20px 12px;
+  }
+
+  .stat__value {
+    font-size: 1.75rem;
+  }
+
+  .cta {
+    padding: 40px 0;
+  }
+
+  .site-footer__cols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .site-footer .logo {
+    justify-content: center;
+  }
+
+  .site-footer__about {
+    margin: 12px auto 0;
+  }
+
+  .site-footer__copy {
+    text-align: center;
+  }
+}
+
+/* Mobile (480 px et moins) */
+@media (max-width: 480px) {
+  .hero__actions,
+  .hero__actions .btn {
+    width: 100%;                /* boutons pleine largeur, plus faciles à toucher */
+  }
+
+  .carousel__arrows {
+    display: none;              /* sur mobile, on fera défiler au doigt (étape 3) */
+  }
+}
