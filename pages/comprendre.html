@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Les notions essentielles de la data et de l'IA expliquées simplement : données, IA, Machine Learning, Deep Learning.">
+  <title>Comprendre la data et l'IA — NeuroLab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@700&amp;display=swap">
+
+  <!-- style.css = styles communs ; contenu.css = styles des pages de contenu -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/contenu.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/comprendre.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="../index.html">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 8L24 16M8 24L24 16M8 8V24" stroke="#00CEC9" stroke-width="2"/>
+          <circle cx="8" cy="8" r="4" fill="#00CEC9"/>
+          <circle cx="8" cy="24" r="4" fill="#00CEC9"/>
+          <circle cx="24" cy="16" r="5" fill="#6C5CE7"/>
+        </svg>
+        NeuroLab
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__list" id="menu">
+          <li><a class="nav__link" href="../index.html">Accueil</a></li>
+          <li><a class="nav__link nav__link--active" href="comprendre.html" aria-current="page">Comprendre</a></li>
+          <li><a class="nav__link" href="applications.html">Applications</a></li>
+          <li><a class="nav__link" href="labo.html">Labo</a></li>
+          <li><a class="nav__link" href="a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= BANDEAU TITRE ================= -->
+    <section class="page-banner">
+      <div class="container">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Accueil</a></li>
+            <li aria-current="page">Comprendre</li>
+          </ol>
+        </nav>
+        <h1>Comprendre la data et l’IA</h1>
+        <p class="page-banner__lead">Les notions essentielles, expliquées pas à pas avec des exemples du quotidien.</p>
+      </div>
+    </section>
+
+    <!-- ================= CONTENU : sommaire + sections ================= -->
+    <div class="section">
+      <div class="container content-layout">
+
+        <!-- Sommaire : colonne collante sur ordinateur, accordéon sur mobile.
+             <details> se replie et se déplie tout seul, sans JavaScript. -->
+        <aside class="toc">
+          <details class="toc__details" open>
+            <summary class="toc__title">Sommaire</summary>
+            <ol class="toc__list">
+              <li><a href="#donnees">Qu’est-ce qu’une donnée ?</a></li>
+              <li><a href="#ia-ml-dl">IA, ML, DL : qui fait quoi ?</a></li>
+              <li><a href="#apprentissage">Comment une machine apprend</a></li>
+              <li><a href="#aller-plus-loin">Aller plus loin</a></li>
+            </ol>
+          </details>
+        </aside>
+
+        <div class="content-main">
+
+          <!-- Section 1 -->
+          <section class="content-section" id="donnees">
+            <h2>1. Qu’est-ce qu’une donnée ?</h2>
+            <div class="split">
+              <div class="split__text">
+                <p>Une donnée, c’est une information enregistrée : un nombre, un texte, une photo, la mesure d’un capteur… Chaque clic sur un site, chaque trajet GPS, chaque message envoyé en produit.</p>
+                <p>Seules, elles ne disent pas grand-chose. Rassemblées par milliers et analysées, elles révèlent des tendances : les heures où une route est encombrée, les films qui plaisent aux mêmes personnes, les signes d’une maladie sur une image médicale.</p>
+              </div>
+              <!-- Image à ajouter plus tard :
+                   <img src="../img/donnees.jpg" alt="Exemples de données : texte, photo, capteur, clic"> -->
+              <div class="media-placeholder">Image : exemples de données (texte, photo, capteur, clic)</div>
+            </div>
+          </section>
+
+          <!-- Section 2 -->
+          <section class="content-section" id="ia-ml-dl">
+            <h2>2. IA, Machine Learning, Deep Learning : qui fait quoi ?</h2>
+            <p>L’<strong>intelligence artificielle</strong> est le grand domaine : faire réaliser à une machine des tâches qui demandent habituellement de l’intelligence humaine. Le <strong>Machine Learning</strong> en est une branche : au lieu d’écrire toutes les règles, on laisse la machine apprendre à partir d’exemples. Le <strong>Deep Learning</strong> est un type de Machine Learning qui utilise des réseaux de neurones à plusieurs couches.</p>
+
+            <!-- Schéma dessiné en SVG : pas d'image à charger, net à toutes les tailles -->
+            <figure class="diagram">
+              <svg viewBox="0 0 480 360" role="img" aria-labelledby="schema-titre">
+                <title id="schema-titre">Le Deep Learning est inclus dans le Machine Learning, lui-même inclus dans l’intelligence artificielle</title>
+                <circle cx="240" cy="180" r="170" fill="#EEEBFF" stroke="#6C5CE7" stroke-width="2"/>
+                <circle cx="240" cy="215" r="125" fill="#D9D3FF" stroke="#6C5CE7" stroke-width="2"/>
+                <circle cx="240" cy="250" r="80" fill="#6C5CE7"/>
+                <text x="240" y="64" text-anchor="middle" font-size="17" font-weight="700" fill="#1E1E2E">Intelligence artificielle</text>
+                <text x="240" y="138" text-anchor="middle" font-size="16" font-weight="700" fill="#1E1E2E">Machine Learning</text>
+                <text x="240" y="256" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Deep Learning</text>
+              </svg>
+              <figcaption>Chaque domaine est inclus dans le précédent : tout le Deep Learning est du Machine Learning, et tout le Machine Learning est de l’IA.</figcaption>
+            </figure>
+          </section>
+
+          <!-- Section 3 -->
+          <section class="content-section" id="apprentissage">
+            <h2>3. Comment une machine apprend</h2>
+            <p>On montre au programme des milliers d’exemples. Il fait une prédiction, mesure son erreur, puis s’ajuste un peu. Il recommence encore et encore, jusqu’à se tromper de moins en moins. C’est ce qu’on appelle l’<strong>entraînement</strong>.</p>
+            <ol class="steps">
+              <li><strong>Des exemples</strong> : des photos de chats et de chiens, chacune avec la bonne réponse.</li>
+              <li><strong>Une prédiction</strong> : le programme devine « chat » ou « chien ».</li>
+              <li><strong>Une correction</strong> : s’il se trompe, il modifie ses réglages internes.</li>
+              <li><strong>Une répétition</strong> : après des milliers d’essais, il reconnaît des animaux qu’il n’a jamais vus.</li>
+            </ol>
+            <!-- Vidéo à ajouter plus tard :
+                 <video controls width="100%" poster="../img/video-poster.jpg">
+                   <source src="../video/apprentissage.mp4" type="video/mp4">
+                   <track src="../video/apprentissage.vtt" kind="subtitles" srclang="fr" label="Français">
+                   Votre navigateur ne lit pas les vidéos.
+                 </video> -->
+            <div class="media-placeholder media-placeholder--dark">Vidéo : l’apprentissage expliqué en 2 minutes</div>
+          </section>
+
+          <!-- Section 4 : liens vers les pages de niveau 2 -->
+          <section class="content-section" id="aller-plus-loin">
+            <h2>4. Aller plus loin</h2>
+            <div class="cards-2">
+              <article class="card">
+                <div class="card__media card__media--2"></div>
+                <div class="card__body">
+                  <p class="eyebrow">Article · 6 min</p>
+                  <h3>Le Machine Learning</h3>
+                  <p class="card__text">Apprendre à partir d’exemples : supervisé ou non supervisé ?</p>
+                  <a class="card__link" href="article-machine-learning.html">Lire l’article →</a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card__media card__media--3"></div>
+                <div class="card__body">
+                  <p class="eyebrow">Article · 7 min</p>
+                  <h3>Les réseaux de neurones</h3>
+                  <p class="card__text">Neurones, couches et poids, sans équations.</p>
+                  <a class="card__link" href="article-reseaux-neurones.html">Lire l’article →</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div>
+          <a class="logo" href="../index.html">
+            <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M8 8L24 16M8 24L24 16M8 8V24" stroke="#00CEC9" stroke-width="2"/>
+              <circle cx="8" cy="8" r="4" fill="#00CEC9"/>
+              <circle cx="8" cy="24" r="4" fill="#00CEC9"/>
+              <circle cx="24" cy="16" r="5" fill="#6C5CE7"/>
+            </svg>
+            NeuroLab
+          </a>
+          <p class="site-footer__about">L’intelligence artificielle et la data expliquées simplement, sans équations.</p>
+        </div>
+
+        <nav aria-label="Navigation du pied de page">
+          <p class="site-footer__title">Navigation</p>
+          <ul class="site-footer__list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="comprendre.html">Comprendre</a></li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="labo.html">Labo</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__title">Le projet</p>
+          <ul class="site-footer__list">
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="a-propos.html#contact">Contact</a></li>
+            <li><a href="https://github.com/Yoannlcf/neurolab">Dépôt GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="site-footer__copy">© 2026 NeuroLab · Projet de programmation Web TI504N · EFREI Paris</p>
+    </div>
+  </footer>
+
+</body>
+</html>
