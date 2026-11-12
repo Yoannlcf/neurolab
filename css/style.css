@@ -149,6 +149,48 @@ a {
   border-color: var(--color-white);
 }
 
+.btn--outline {                 /* bouton secondaire sur fond clair */
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.btn--outline:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Étiquettes arrondies (technologies, filtres) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;              /* les chips passent à la ligne si besoin */
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 8px 16px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font: 500 0.875rem var(--font-text);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+button.chip {                   /* chip cliquable (filtres) */
+  cursor: pointer;
+}
+
+button.chip:hover {
+  border-color: var(--color-primary);
+}
+
+.chip--active {
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
 /* Carte (carrousel, liens vers les articles, etc.) */
 .card {
   overflow: hidden;
