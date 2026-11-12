@@ -1,0 +1,232 @@
+/* =========================================================
+   NeuroLab — page Labo (démo k-means + quiz)
+   À charger APRÈS style.css : il réutilise ses variables.
+   ========================================================= */
+
+
+/* ---------- Démo k-means ---------- */
+.labo__intro {
+  margin: 16px 0 40px;
+  max-width: 800px;
+  color: var(--color-muted);
+}
+
+.kmeans {
+  display: grid;
+  grid-template-columns: 1fr 360px;   /* le canvas prend toute la place restante */
+  align-items: start;
+  gap: 32px;
+}
+
+.kmeans__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kmeans__canvas {
+  width: 100%;
+  height: auto;                 /* garde les proportions 800 x 480 */
+  border-radius: var(--radius);
+  background-color: var(--color-dark-2);
+}
+
+.kmeans__status {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* Panneau de contrôle */
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.panel__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.panel__field input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-primary);   /* curseur aux couleurs de la charte */
+}
+
+.panel__label {
+  display: flex;
+  justify-content: space-between;   /* libellé à gauche, valeur à droite */
+}
+
+.panel output {
+  color: var(--color-primary);
+}
+
+.btn--quiet {                   /* bouton discret (réinitialiser) */
+  border-color: var(--color-line);
+  color: var(--color-muted);
+  background-color: transparent;
+}
+
+.btn--quiet:hover {
+  border-color: var(--color-muted);
+}
+
+
+/* ---------- Quiz ---------- */
+.quiz-wrap {
+  max-width: calc(800px + 2 * var(--gutter));   /* colonne de 800 px centrée */
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px;
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+}
+
+.quiz__top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.quiz__score {
+  color: var(--color-primary);
+}
+
+/* Barre de progression : on retire le style par défaut du navigateur */
+.quiz__progress {
+  width: 100%;
+  height: 6px;
+  border: none;
+  border-radius: 999px;
+  appearance: none;
+  background-color: var(--color-placeholder);
+}
+
+.quiz__progress::-webkit-progress-bar {
+  border-radius: 999px;
+  background-color: var(--color-placeholder);
+}
+
+.quiz__progress::-webkit-progress-value {
+  border-radius: 999px;
+  background-color: var(--color-primary);
+}
+
+.quiz__progress::-moz-progress-bar {
+  border-radius: 999px;
+  background-color: var(--color-primary);
+}
+
+.quiz__question {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.quiz__question legend {
+  margin-bottom: 16px;
+  padding: 0;
+  font: 700 1.5rem/1.2 var(--font-title);
+}
+
+.quiz__options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Chaque réponse est un <label> cliquable sur toute sa largeur */
+.quiz__option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+
+.quiz__option:hover {
+  border-color: var(--color-primary);
+}
+
+/* :has() = « un label qui contient une case cochée » : surligne le choix */
+.quiz__option:has(input:checked) {
+  border-color: var(--color-primary);
+  font-weight: 600;
+  background-color: var(--color-primary-light);
+}
+
+.quiz__option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.quiz .btn {
+  align-self: flex-start;
+}
+
+/* Retour après une réponse : classes ajoutées par le JavaScript */
+.quiz__feedback:empty {
+  display: none;                /* pas de case vide tant qu'il n'y a pas de message */
+}
+
+.quiz__feedback {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+}
+
+.quiz__feedback--ok {
+  color: #007A62;
+  background-color: #E6F8F3;
+}
+
+.quiz__feedback--ko {
+  color: #B54A30;
+  background-color: #FDECE7;
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .kmeans {
+    grid-template-columns: 1fr;   /* le panneau passe sous le canvas */
+    gap: 20px;
+  }
+
+  .labo__intro {
+    margin-bottom: 24px;
+  }
+
+  .quiz {
+    padding: 20px;
+  }
+
+  .quiz__question legend {
+    font-size: 1.25rem;
+  }
+
+  .quiz .btn {
+    align-self: stretch;
+  }
+}
