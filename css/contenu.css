@@ -159,8 +159,104 @@
 }
 
 
+/* ---------- Page Applications ---------- */
+.apps {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Conteneur du tableau : c'est lui qui défile, pas la page */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;    /* bordures des cellules fusionnées */
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.data-table caption {
+  padding: 14px 20px;
+  font-size: 0.8125rem;
+  text-align: left;
+  color: var(--color-muted);
+}
+
+.data-table th,
+.data-table td {
+  padding: 16px 20px;
+  vertical-align: top;
+}
+
+.data-table thead th {
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+.data-table tbody th {
+  font-weight: 600;
+}
+
+.data-table tbody tr:nth-child(even) {  /* une ligne sur deux en gris */
+  background-color: var(--color-bg);
+}
+
+/* Ligne masquée par les filtres (classe ajoutée en JavaScript, étape 3) */
+.is-hidden {
+  display: none;
+}
+
+.table-hint {
+  display: none;                /* affiché seulement sur mobile */
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* Trois cartes côte à côte */
+.cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
+  .cards-3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .apps {
+    gap: 20px;
+  }
+
+  /* Le tableau garde une largeur minimale lisible et défile
+     dans son conteneur au lieu d'écraser ses 5 colonnes */
+  .data-table {
+    min-width: 680px;
+    font-size: 0.8125rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 12px;
+  }
+
+  .table-hint {
+    display: block;
+  }
+
   /* Une seule colonne : le sommaire passe au-dessus du contenu */
   .content-layout,
   .split,

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Santé, transports, loisirs : comparez les usages de l'intelligence artificielle au quotidien.">
+  <title>L'IA au quotidien — NeuroLab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@700&amp;display=swap">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/contenu.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="../index.html">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 8L24 16M8 24L24 16M8 8V24" stroke="#00CEC9" stroke-width="2"/>
+          <circle cx="8" cy="8" r="4" fill="#00CEC9"/>
+          <circle cx="8" cy="24" r="4" fill="#00CEC9"/>
+          <circle cx="24" cy="16" r="5" fill="#6C5CE7"/>
+        </svg>
+        NeuroLab
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__list" id="menu">
+          <li><a class="nav__link" href="../index.html">Accueil</a></li>
+          <li><a class="nav__link" href="comprendre.html">Comprendre</a></li>
+          <li><a class="nav__link nav__link--active" href="applications.html" aria-current="page">Applications</a></li>
+          <li><a class="nav__link" href="labo.html">Labo</a></li>
+          <li><a class="nav__link" href="a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= BANDEAU TITRE ================= -->
+    <section class="page-banner">
+      <div class="container">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Accueil</a></li>
+            <li aria-current="page">Applications</li>
+          </ol>
+        </nav>
+        <h1>L’IA au quotidien</h1>
+        <p class="page-banner__lead">Santé, transports, loisirs : l’IA est déjà partout. Filtrez par domaine pour explorer.</p>
+      </div>
+    </section>
+
+    <!-- ================= TABLEAU COMPARATIF ================= -->
+    <section class="section" aria-labelledby="titre-comparatif">
+      <div class="container apps">
+
+        <!-- Filtres : boutons qui masqueront les lignes du tableau (JavaScript, étape 3).
+             data-domaine stocke la valeur du filtre directement dans le HTML. -->
+        <div class="chips" role="group" aria-label="Filtrer par domaine">
+          <button class="chip chip--active" type="button" data-domaine="tous" aria-pressed="true">Tous</button>
+          <button class="chip" type="button" data-domaine="sante" aria-pressed="false">Santé</button>
+          <button class="chip" type="button" data-domaine="transport" aria-pressed="false">Transport</button>
+          <button class="chip" type="button" data-domaine="loisirs" aria-pressed="false">Loisirs</button>
+          <button class="chip" type="button" data-domaine="quotidien" aria-pressed="false">Quotidien</button>
+          <button class="chip" type="button" data-domaine="securite" aria-pressed="false">Sécurité</button>
+        </div>
+
+        <h2 id="titre-comparatif">Comparatif des usages</h2>
+
+        <!-- Sur mobile, le tableau garde ses 5 colonnes et défile
+             horizontalement dans ce conteneur (overflow-x: auto). -->
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="titre-comparatif">
+          <table class="data-table">
+            <caption>Cinq usages de l’IA comparés selon le type d’IA, les données utilisées et le bénéfice</caption>
+            <thead>
+              <tr>
+                <th scope="col">Domaine</th>
+                <th scope="col">Exemple</th>
+                <th scope="col">Type d’IA</th>
+                <th scope="col">Données utilisées</th>
+                <th scope="col">Bénéfice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-domaine="sante">
+                <th scope="row">Santé</th>
+                <td>Aide au diagnostic sur radiographies</td>
+                <td>Vision par ordinateur</td>
+                <td>Images médicales</td>
+                <td>Détection plus précoce</td>
+              </tr>
+              <tr data-domaine="transport">
+                <th scope="row">Transport</th>
+                <td>GPS qui prévoit les bouchons</td>
+                <td>Prédiction (Machine Learning)</td>
+                <td>Positions GPS, historique du trafic</td>
+                <td>Trajets plus rapides</td>
+              </tr>
+              <tr data-domaine="loisirs">
+                <th scope="row">Loisirs</th>
+                <td>Recommandations de films et de musique</td>
+                <td>Système de recommandation</td>
+                <td>Historique d’écoute et de visionnage</td>
+                <td>Découvertes personnalisées</td>
+              </tr>
+              <tr data-domaine="quotidien">
+                <th scope="row">Quotidien</th>
+                <td>Assistant vocal</td>
+                <td>Traitement du langage</td>
+                <td>Voix, requêtes</td>
+                <td>Commandes mains libres</td>
+              </tr>
+              <tr data-domaine="securite">
+                <th scope="row">Sécurité</th>
+                <td>Filtre anti-spam</td>
+                <td>Classification (Machine Learning)</td>
+                <td>Contenu des e-mails</td>
+                <td>Boîte mail plus propre</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-hint">← Faites glisser le tableau horizontalement →</p>
+      </div>
+    </section>
+
+    <!-- ================= ZOOM SUR 3 USAGES ================= -->
+    <section class="section section--white" aria-labelledby="titre-zoom">
+      <div class="container">
+        <h2 class="section__title" id="titre-zoom">Zoom sur 3 usages</h2>
+        <div class="cards-3">
+          <article class="card" data-domaine="sante">
+            <div class="card__media card__media--1"></div>
+            <div class="card__body">
+              <p class="eyebrow">Santé</p>
+              <h3>Lire une radiographie</h3>
+              <p class="card__text">Entraînée sur des milliers d’images annotées par des médecins, une IA repère des zones suspectes et les signale au radiologue, qui garde la décision finale.</p>
+            </div>
+          </article>
+          <article class="card" data-domaine="transport">
+            <div class="card__media card__media--2"></div>
+            <div class="card__body">
+              <p class="eyebrow">Transport</p>
+              <h3>La voiture qui voit la route</h3>
+              <p class="card__text">Caméras et capteurs observent l’environnement en continu ; des modèles reconnaissent piétons, panneaux et marquages pour assister le conducteur.</p>
+            </div>
+          </article>
+          <article class="card" data-domaine="loisirs">
+            <div class="card__media card__media--3"></div>
+            <div class="card__body">
+              <p class="eyebrow">Loisirs</p>
+              <h3>Pourquoi cette série ?</h3>
+              <p class="card__text">Les plateformes comparent vos goûts à ceux d’utilisateurs similaires : si des profils proches du vôtre ont aimé une série, elle vous est proposée.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div>
+          <a class="logo" href="../index.html">
+            <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M8 8L24 16M8 24L24 16M8 8V24" stroke="#00CEC9" stroke-width="2"/>
+              <circle cx="8" cy="8" r="4" fill="#00CEC9"/>
+              <circle cx="8" cy="24" r="4" fill="#00CEC9"/>
+              <circle cx="24" cy="16" r="5" fill="#6C5CE7"/>
+            </svg>
+            NeuroLab
+          </a>
+          <p class="site-footer__about">L’intelligence artificielle et la data expliquées simplement, sans équations.</p>
+        </div>
+
+        <nav aria-label="Navigation du pied de page">
+          <p class="site-footer__title">Navigation</p>
+          <ul class="site-footer__list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="comprendre.html">Comprendre</a></li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="labo.html">Labo</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__title">Le projet</p>
+          <ul class="site-footer__list">
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="a-propos.html#contact">Contact</a></li>
+            <li><a href="https://github.com/Yoannlcf/neurolab">Dépôt GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="site-footer__copy">© 2026 NeuroLab · Projet de programmation Web TI504N · EFREI Paris</p>
+    </div>
+  </footer>
+
+</body>
+</html>
