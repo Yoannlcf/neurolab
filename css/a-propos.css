@@ -1,0 +1,200 @@
+/* =========================================================
+   NeuroLab — page À propos (équipe, technologies, contact)
+   À charger APRÈS style.css : il réutilise ses variables.
+   ========================================================= */
+
+
+/* ---------- Cartes de l'équipe ---------- */
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  text-align: center;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+/* Initiales dans un cercle, à la place d'une photo */
+.member__avatar {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  font: 700 1.5rem var(--font-title);
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+.member__role {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.member__work {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+
+/* ---------- Technologies ---------- */
+.about-tech {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.about-tech p {
+  max-width: 900px;
+  color: var(--color-muted);
+}
+
+
+/* ---------- Formulaire de contact ---------- */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  align-items: start;
+  gap: 48px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px;
+  border-radius: var(--radius);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form__field input,
+.form__field select,
+.form__field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  font: inherit;                /* les champs n'héritent pas de la police par défaut */
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+.form__field textarea {
+  resize: vertical;             /* on peut agrandir en hauteur, pas en largeur */
+}
+
+.form__field input:focus,
+.form__field select:focus,
+.form__field textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Champ en erreur : classe ajoutée par le JavaScript (étape 3) */
+.form__field--error input,
+.form__field--error textarea {
+  border-color: #E17055;
+}
+
+.form__error {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #E17055;
+}
+
+.form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.form__check input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--color-primary);
+}
+
+.form__note {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.form .btn {
+  align-self: flex-start;
+}
+
+/* Encart à droite du formulaire */
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px 28px;
+  border-radius: var(--radius);
+  color: var(--color-soft);
+  background-color: var(--color-dark);
+}
+
+.contact__info h3 {
+  color: var(--color-white);
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .team,
+  .contact,
+  .form__row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .form .btn {
+    align-self: stretch;        /* bouton pleine largeur sur mobile */
+  }
+
+  .contact__info {
+    display: none;              /* encart masqué sur mobile pour aller à l'essentiel */
+  }
+}
