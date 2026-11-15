@@ -377,8 +377,7 @@ button.chip:hover {
   gap: 12px;
 }
 
-/* Zone du futur canvas animé (étape 3) : un dégradé sert de fond
-   tant que le JavaScript n'a pas dessiné le réseau de neurones. */
+/* Visuel décoratif du hero : deux halos de couleur sur fond bleu nuit */
 .hero__visual {
   width: 100%;
   height: 420px;
