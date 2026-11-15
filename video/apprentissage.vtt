@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+Comment une machine apprend : prédire, mesurer son erreur, s’ajuster… et recommencer.
+
+00:00:05.000 --> 00:00:10.000
+On lui montre des exemples dont on connaît la bonne réponse.
+
+00:00:10.000 --> 00:00:14.000
+Au départ, elle trace une frontière au hasard.
+
+00:00:14.000 --> 00:00:18.000
+Les points cerclés de rouge sont mal classés : c’est son erreur.
+
+00:00:18.000 --> 00:00:26.000
+À chaque essai, elle corrige un peu sa frontière et l’erreur diminue.
+
+00:00:26.000 --> 00:00:31.000
+Entraînée, elle classe correctement un cas qu’elle n’a jamais vu.
+
+00:00:31.000 --> 00:00:34.000
+À vous de jouer : testez l’algorithme k-means dans le labo.
