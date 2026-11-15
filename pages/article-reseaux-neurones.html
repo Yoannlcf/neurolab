@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Neurones, poids et couches : le fonctionnement d'un réseau de neurones expliqué sans équations.">
+  <title>Les réseaux de neurones — NeuroLab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@700&amp;display=swap">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/contenu.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="../index.html">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 8L24 16M8 24L24 16M8 8V24" stroke="#00CEC9" stroke-width="2"/>
+          <circle cx="8" cy="8" r="4" fill="#00CEC9"/>
+          <circle cx="8" cy="24" r="4" fill="#00CEC9"/>
+          <circle cx="24" cy="16" r="5" fill="#6C5CE7"/>
+        </svg>
+        NeuroLab
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__list" id="menu">
+          <li><a class="nav__link" href="../index.html">Accueil</a></li>
+          <li><a class="nav__link nav__link--active" href="comprendre.html" aria-current="page">Comprendre</a></li>
+          <li><a class="nav__link" href="applications.html">Applications</a></li>
+          <li><a class="nav__link" href="labo.html">Labo</a></li>
+          <li><a class="nav__link" href="a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= BANDEAU TITRE ================= -->
+    <section class="page-banner">
+      <div class="container">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="comprendre.html">Comprendre</a></li>
+            <li aria-current="page">Réseaux de neurones</li>
+          </ol>
+        </nav>
+        <h1>Les réseaux de neurones, décortiqués</h1>
+        <p class="page-banner__meta">Lecture : 5 min</p>
+      </div>
+    </section>
+
+    <!-- ================= ARTICLE ================= -->
+    <div class="section section--white">
+      <div class="container">
+        <article class="article">
+
+          <h2>Un neurone artificiel</h2>
+          <p>Malgré son nom, un neurone artificiel est une opération très simple. Il reçoit plusieurs valeurs, multiplie chacune par un <strong>poids</strong> qui mesure son importance, additionne le tout, puis décide de « s’activer » ou non selon le résultat.</p>
+          <p>Prenons un exemple : pour décider s’il faut prendre un parapluie, on peut combiner la couverture nuageuse, l’humidité et la saison. Le poids de chaque critère dit à quel point il compte dans la décision.</p>
+
+          <aside class="keypoints">
+            <h3>À retenir</h3>
+            <ul>
+              <li>Un neurone = une somme pondérée suivie d’une décision d’activation.</li>
+              <li>Apprendre, c’est ajuster les poids pour réduire l’erreur.</li>
+              <li>Beaucoup de couches empilées = Deep Learning.</li>
+            </ul>
+          </aside>
+
+          <h2>Des couches qui s’empilent</h2>
+          <p>Un réseau de neurones organise les neurones en <strong>couches</strong>. La première reçoit les données (par exemple les pixels d’une image), la dernière donne la réponse (« chat » ou « chien »). Entre les deux, les <strong>couches cachées</strong> détectent des motifs de plus en plus complexes : des contours, puis des formes, puis des objets entiers.</p>
+          <p>Quand un réseau compte de nombreuses couches cachées, on parle de réseau « profond » : c’est l’origine du terme Deep Learning.</p>
+
+          <h2>Comment le réseau apprend</h2>
+          <p>Au départ, les poids sont choisis au hasard et le réseau se trompe souvent. À chaque exemple, on mesure son erreur, puis on modifie légèrement chaque poids dans la direction qui réduit cette erreur. Après des milliers d’exemples, les poids sont réglés et le réseau devient fiable.</p>
+
+          <nav class="article-nav" aria-label="Navigation entre articles">
+            <a class="btn btn--outline" href="article-machine-learning.html">← Article précédent : Machine Learning</a>
+            <a class="btn" href="labo.html">Tester dans le labo →</a>
+          </nav>
+
+        </article>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div>
+          <a class="logo" href="../index.html">
+            <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M8 8L24 16M8 24L24 16M8 8V24" stroke="#00CEC9" stroke-width="2"/>
+              <circle cx="8" cy="8" r="4" fill="#00CEC9"/>
+              <circle cx="8" cy="24" r="4" fill="#00CEC9"/>
+              <circle cx="24" cy="16" r="5" fill="#6C5CE7"/>
+            </svg>
+            NeuroLab
+          </a>
+          <p class="site-footer__about">L’intelligence artificielle et la data expliquées simplement, sans équations.</p>
+        </div>
+
+        <nav aria-label="Navigation du pied de page">
+          <p class="site-footer__title">Navigation</p>
+          <ul class="site-footer__list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="comprendre.html">Comprendre</a></li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="labo.html">Labo</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="site-footer__title">Le projet</p>
+          <ul class="site-footer__list">
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="a-propos.html#contact">Contact</a></li>
+            <li><a href="https://github.com/Yoannlcf/neurolab">Dépôt GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="site-footer__copy">© 2026 NeuroLab · Projet de programmation Web TI504N · EFREI Paris</p>
+    </div>
+  </footer>
+
+</body>
+</html>
