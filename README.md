@@ -6,9 +6,9 @@ Site de vulgarisation sur la data et l'intelligence artificielle, réalisé en *
 
 | Membre | Rôle principal | Pages |
 | --- | --- | --- |
-| Yoann Lehong Cheffson | Charte CSS, header/footer, responsive | Accueil, À propos + validation du formulaire |
-| Loïc Chen | Contenu, tableaux | Comprendre, Applications + filtres, 2 articles |
-| Joseph Kenmogne | JavaScript | Labo : démo k-means et quiz JSON |
+| Yoann Lehong Cheffson | Charte CSS, JavaScript, intégration | Accueil, À propos, articles, tous les scripts, illustrations et vidéo |
+| Loïc Chen | Pages de contenu | Comprendre, Applications (tableau comparatif) |
+| Joseph Kenmogne | Page Labo | Structure HTML/CSS du Labo (démo et quiz) |
 
 ## Liens
 
@@ -38,6 +38,7 @@ En local, ouvrir le dossier dans VS Code et lancer `index.html` avec l'extension
 | Fichier | Rôle |
 | --- | --- |
 | `js/main.js` | Menu burger (toutes les pages) |
+| `js/carrousel.js` | Carrousel des thèmes : flèches, points, swipe, défilement automatique |
 | `js/comprendre.js` | Sommaire replié sur mobile (`matchMedia`) |
 | `js/applications.js` | Filtres du tableau comparatif |
 | `js/contact.js` | Validation du formulaire en temps réel, envoi simulé |
@@ -55,7 +56,8 @@ neurolab/
 ├── css/         style.css (commun) + une feuille par groupe de pages
 ├── js/          Scripts
 ├── data/        quiz.json
-├── img/ video/  Médias (à venir)
+├── img/        Illustrations SVG originales, favicon, affiche de la vidéo
+├── video/      Vidéo explicative (MP4) et sous-titres (VTT)
 └── maquette/    Export PDF de la maquette Figma
 ```
 
