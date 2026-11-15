@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/a-propos.css">
   <script src="../js/main.js" defer></script>
+  <script src="../js/contact.js" defer></script>
 </head>
 <body>
 
@@ -117,9 +118,9 @@
         <h2 class="section__title" id="titre-contact">Nous écrire</h2>
 
         <div class="contact">
-          <!-- Pas de serveur : l'envoi sera simulé en JavaScript (étape 3).
-               Les attributs required, type="email" et minlength donnent
-               déjà une première validation par le navigateur. -->
+          <!-- Pas de serveur : contact.js vérifie les champs puis simule l'envoi.
+               Sans JavaScript, required, type="email" et minlength assurent
+               quand même une validation par le navigateur. -->
           <form class="form" id="contact-form">
             <div class="form__row">
               <div class="form__field">

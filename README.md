@@ -6,53 +6,62 @@ Site de vulgarisation sur la data et l'intelligence artificielle, réalisé en *
 
 | Membre | Rôle principal | Pages |
 | --- | --- | --- |
-| Yoann Lehong Cheffson | Charte CSS, header/footer, responsive | Accueil, À propos + formulaire |
-| Loïc Chen | Contenu, tableaux, médias | Comprendre, articles, Applications |
-| Joseph Kenmogne | JavaScript | Labo (k-means + quiz), carrousel |
+| Yoann Lehong Cheffson | Charte CSS, header/footer, responsive | Accueil, À propos + validation du formulaire |
+| Loïc Chen | Contenu, tableaux | Comprendre, Applications + filtres, 2 articles |
+| Joseph Kenmogne | JavaScript | Labo : démo k-means et quiz JSON |
 
 ## Liens
 
-- Maquette Figma : https://www.figma.com/design/uELUCYvhMqvKLPQbX6wWLW
-- Site en ligne : _à compléter (GitHub Pages)_
-
-## Structure du projet
-
-```
-neurolab/
-├── index.html          Accueil (niveau 0)
-├── pages/              Pages de niveau 1 et 2
-├── css/                Feuilles de style
-├── js/                 Scripts (chargés avec defer)
-├── data/               Fichiers JSON (questions du quiz)
-├── img/                Images
-├── video/              Vidéos
-└── maquette/           Export de la maquette (PDF / PNG)
-```
+- Site en ligne : https://yoannlcf.github.io/neurolab/
+- Maquette Figma : https://www.figma.com/design/uELUCYvhMqvKLPQbX6wWLW (export PDF dans `maquette/`)
 
 ## Lancer le site
 
-Ouvrir `index.html` dans un navigateur. Le quiz charge `data/quiz.json` avec `fetch()` : pour le tester en local, utiliser l'extension **Live Server** de VS Code (un simple double-clic sur le fichier bloque `fetch`).
+Le plus simple est la version en ligne ci-dessus.
 
-## Règles de travail Git
+En local, ouvrir le dossier dans VS Code et lancer `index.html` avec l'extension **Live Server**. Le quiz charge `data/quiz.json` avec `fetch()`, ce que les navigateurs bloquent quand on ouvre le fichier par un double-clic (`file://`) : dans ce cas, le quiz affiche un message d'erreur et le reste du site fonctionne normalement.
 
-1. On ne code jamais directement sur `main`.
-2. Une branche par fonctionnalité : `feature/header`, `feature/page-comprendre`, `feature/labo-kmeans`…
-3. Des commits petits et explicites, en français, au présent :
-   `Ajoute le tableau comparatif`, `Corrige le menu burger sur mobile`.
-4. Avant de fusionner : valider la page avec le [validateur HTML W3C](https://validator.w3.org/) et le CSS avec le [validateur CSS W3C](https://jigsaw.w3.org/css-validator/).
-5. Fusion dans `main` par Pull Request, relue par un autre membre.
+## Pages
 
-## Validation W3C
-
-| Page | HTML | CSS |
+| Niveau | Page | Contenu |
 | --- | --- | --- |
-| index.html | ⬜ | ⬜ |
-| pages/comprendre.html | ⬜ | ⬜ |
-| pages/article-machine-learning.html | ⬜ | ⬜ |
-| pages/article-reseaux-neurones.html | ⬜ | ⬜ |
-| pages/applications.html | ⬜ | ⬜ |
-| pages/labo.html | ⬜ | ⬜ |
-| pages/a-propos.html | ⬜ | ⬜ |
+| 0 | `index.html` | Accueil : présentation, thèmes, chiffres clés sourcés |
+| 1 | `pages/comprendre.html` | Notions de base, sommaire collant / accordéon, schéma SVG |
+| 2 | `pages/article-machine-learning.html` | Article sur le Machine Learning |
+| 2 | `pages/article-reseaux-neurones.html` | Article sur les réseaux de neurones |
+| 1 | `pages/applications.html` | Tableau comparatif filtrable par domaine |
+| 1 | `pages/labo.html` | Démo k-means sur canvas, quiz chargé en JSON |
+| 1 | `pages/a-propos.html` | Équipe, technologies, formulaire de contact validé en JS |
+
+## JavaScript
+
+| Fichier | Rôle |
+| --- | --- |
+| `js/main.js` | Menu burger (toutes les pages) |
+| `js/comprendre.js` | Sommaire replié sur mobile (`matchMedia`) |
+| `js/applications.js` | Filtres du tableau comparatif |
+| `js/contact.js` | Validation du formulaire en temps réel, envoi simulé |
+| `js/kmeans.js` | Algorithme k-means animé dans un `<canvas>` |
+| `js/quiz.js` | Quiz : `fetch` asynchrone de `data/quiz.json` dans un `try/catch`, meilleur score en `localStorage` |
+
+Tous les scripts sont chargés avec `defer`.
+
+## Structure
+
+```
+neurolab/
+├── index.html
+├── pages/       Pages de niveau 1 et 2 (+ modele.html, gabarit de page)
+├── css/         style.css (commun) + une feuille par groupe de pages
+├── js/          Scripts
+├── data/        quiz.json
+├── img/ video/  Médias (à venir)
+└── maquette/    Export PDF de la maquette Figma
+```
+
+## Méthode Git
+
+Une branche par fonctionnalité, fusion dans `main` par Pull Request relue par un autre membre, validation W3C avant fusion.
 
 ## Sources des chiffres
 

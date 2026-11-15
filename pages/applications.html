@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/contenu.css">
   <script src="../js/main.js" defer></script>
+  <script src="../js/applications.js" defer></script>
 </head>
 <body>
 
@@ -65,7 +66,7 @@
     <section class="section" aria-labelledby="titre-comparatif">
       <div class="container apps">
 
-        <!-- Filtres : boutons qui masqueront les lignes du tableau (JavaScript, étape 3).
+        <!-- Filtres : applications.js masque les lignes du tableau selon le domaine.
              data-domaine stocke la valeur du filtre directement dans le HTML. -->
         <div class="chips" role="group" aria-label="Filtrer par domaine">
           <button class="chip chip--active" type="button" data-domaine="tous" aria-pressed="true">Tous</button>
@@ -77,6 +78,7 @@
         </div>
 
         <h2 id="titre-comparatif">Comparatif des usages</h2>
+        <p class="filter-count" id="filtre-compteur" aria-live="polite"></p>
 
         <!-- Sur mobile, le tableau garde ses 5 colonnes et défile
              horizontalement dans ce conteneur (overflow-x: auto). -->

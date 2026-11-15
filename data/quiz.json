@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Quel type d’apprentissage utilise des exemples étiquetés ?",
+    "options": ["Apprentissage supervisé", "Apprentissage non supervisé", "Apprentissage par renforcement", "Aucun des trois"],
+    "reponse": 0,
+    "explication": "Les étiquettes (« spam » / « pas spam », « chat » / « chien ») guident l’apprentissage : c’est l’apprentissage supervisé."
+  },
+  {
+    "question": "Lequel de ces domaines contient les deux autres ?",
+    "options": ["Le Deep Learning", "Le Machine Learning", "L’intelligence artificielle", "Les réseaux de neurones"],
+    "reponse": 2,
+    "explication": "L’IA est le grand domaine. Le Machine Learning en est une branche, et le Deep Learning une branche du Machine Learning."
+  },
+  {
+    "question": "Que fait l’algorithme k-means du labo ?",
+    "options": ["Il prédit une valeur future", "Il regroupe des points qui se ressemblent", "Il traduit un texte", "Il génère des images"],
+    "reponse": 1,
+    "explication": "K-means regroupe les données en k groupes sans étiquettes : c’est de l’apprentissage non supervisé (clustering)."
+  },
+  {
+    "question": "Dans k-means, que représente la lettre k ?",
+    "options": ["Le nombre de points", "Le nombre d’étapes", "Le nombre de groupes", "La vitesse de l’algorithme"],
+    "reponse": 2,
+    "explication": "k est le nombre de groupes que l’on demande à l’algorithme de trouver. Vous le choisissez avec le curseur du labo."
+  },
+  {
+    "question": "Qu’est-ce qu’une donnée ?",
+    "options": ["Uniquement un nombre", "Une information enregistrée : nombre, texte, image, mesure…", "Un programme informatique", "Un résultat calculé par une IA"],
+    "reponse": 1,
+    "explication": "Une donnée peut prendre de nombreuses formes : un nombre, un texte, une photo, la mesure d’un capteur, un clic…"
+  },
+  {
+    "question": "Pendant l’entraînement, que fait un modèle après une erreur ?",
+    "options": ["Il s’arrête définitivement", "Il efface ses données", "Il ajuste ses réglages internes", "Il demande l’aide d’un humain"],
+    "reponse": 2,
+    "explication": "Le modèle mesure son erreur puis ajuste ses paramètres (ses « poids »), et recommence jusqu’à se tromper de moins en moins."
+  },
+  {
+    "question": "Dans un réseau de neurones, à quoi sert un « poids » ?",
+    "options": ["À mesurer l’importance d’une valeur d’entrée", "À stocker les images", "À compter les neurones", "À accélérer l’ordinateur"],
+    "reponse": 0,
+    "explication": "Chaque entrée d’un neurone est multipliée par un poids qui indique son importance. Apprendre, c’est ajuster ces poids."
+  },
+  {
+    "question": "Quel usage de l’IA relève de la vision par ordinateur ?",
+    "options": ["Le filtre anti-spam", "L’assistant vocal", "L’aide au diagnostic sur radiographies", "La recommandation de musique"],
+    "reponse": 2,
+    "explication": "Analyser une radiographie, c’est analyser une image : c’est le domaine de la vision par ordinateur."
+  },
+  {
+    "question": "Comment fonctionne une recommandation de série en streaming ?",
+    "options": ["Au hasard", "En comparant vos goûts à ceux d’utilisateurs similaires", "En lisant vos e-mails", "En suivant uniquement les nouveautés"],
+    "reponse": 1,
+    "explication": "Si des profils proches du vôtre ont aimé une série, la plateforme vous la propose : c’est un système de recommandation."
+  },
+  {
+    "question": "Qu’est-ce qui caractérise le Deep Learning ?",
+    "options": ["Il n’a pas besoin de données", "Il utilise des réseaux de neurones à plusieurs couches", "Il fonctionne sans ordinateur", "Il n’apprend jamais"],
+    "reponse": 1,
+    "explication": "« Deep » signifie profond : le Deep Learning empile de nombreuses couches de neurones pour détecter des motifs complexes."
+  }
+]
