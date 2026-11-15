@@ -95,6 +95,32 @@
   gap: 12px;
 }
 
+/* Image à côté du texte */
+.split__img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Vidéo explicative */
+.video {
+  margin: 8px 0 0;
+}
+
+.video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background-color: var(--color-dark);
+}
+
+.video figcaption {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
 /* Emplacement provisoire d'une image ou d'une vidéo */
 .media-placeholder {
   display: grid;
@@ -122,6 +148,12 @@
   border-radius: 12px;
   text-align: center;
   background-color: var(--color-white);
+}
+
+.diagram img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .diagram svg {
@@ -154,7 +186,8 @@
   gap: 24px;
 }
 
-.cards-2 .card__media {
+.cards-2 .card__media,
+.cards-2 .card__img {
   height: 140px;
 }
 

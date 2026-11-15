@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Les notions essentielles de la data et de l'IA expliquées simplement : données, IA, Machine Learning, Deep Learning.">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
   <title>Comprendre la data et l'IA — NeuroLab</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,9 +92,7 @@
                 <p>Une donnée, c’est une information enregistrée : un nombre, un texte, une photo, la mesure d’un capteur… Chaque clic sur un site, chaque trajet GPS, chaque message envoyé en produit.</p>
                 <p>Seules, elles ne disent pas grand-chose. Rassemblées par milliers et analysées, elles révèlent des tendances : les heures où une route est encombrée, les films qui plaisent aux mêmes personnes, les signes d’une maladie sur une image médicale.</p>
               </div>
-              <!-- Image à ajouter plus tard :
-                   <img src="../img/donnees.jpg" alt="Exemples de données : texte, photo, capteur, clic"> -->
-              <div class="media-placeholder">Image : exemples de données (texte, photo, capteur, clic)</div>
+              <img class="split__img" src="../img/donnees.svg" alt="Quatre exemples de données : un texte, une image, la courbe d’un capteur et un clic sur un bouton" width="800" height="450">
             </div>
           </section>
 
@@ -127,13 +126,15 @@
               <li><strong>Une correction</strong> : s’il se trompe, il modifie ses réglages internes.</li>
               <li><strong>Une répétition</strong> : après des milliers d’essais, il reconnaît des animaux qu’il n’a jamais vus.</li>
             </ol>
-            <!-- Vidéo à ajouter plus tard :
-                 <video controls width="100%" poster="../img/video-poster.jpg">
-                   <source src="../video/apprentissage.mp4" type="video/mp4">
-                   <track src="../video/apprentissage.vtt" kind="subtitles" srclang="fr" label="Français">
-                   Votre navigateur ne lit pas les vidéos.
-                 </video> -->
-            <div class="media-placeholder media-placeholder--dark">Vidéo : l’apprentissage expliqué en 2 minutes</div>
+            <figure class="video">
+              <!-- preload="metadata" : la vidéo n'est téléchargée qu'au clic sur lecture -->
+              <video controls preload="metadata" width="1280" height="720" poster="../img/video-poster.jpg">
+                <source src="../video/apprentissage.mp4" type="video/mp4">
+                <track src="../video/apprentissage.vtt" kind="subtitles" srclang="fr" label="Français">
+                Votre navigateur ne peut pas lire cette vidéo.
+              </video>
+              <figcaption>Animation : une machine trace une frontière, mesure son erreur et s’ajuste jusqu’à bien classer les points (34 s, sous-titres disponibles).</figcaption>
+            </figure>
           </section>
 
           <!-- Section 4 : liens vers les pages de niveau 2 -->
@@ -141,7 +142,7 @@
             <h2>4. Aller plus loin</h2>
             <div class="cards-2">
               <article class="card">
-                <div class="card__media card__media--2"></div>
+                <img class="card__img" src="../img/theme-ml.svg" alt="" width="800" height="450" loading="lazy">
                 <div class="card__body">
                   <p class="eyebrow">Article · 6 min</p>
                   <h3>Le Machine Learning</h3>
@@ -150,7 +151,7 @@
                 </div>
               </article>
               <article class="card">
-                <div class="card__media card__media--3"></div>
+                <img class="card__img" src="../img/theme-reseaux.svg" alt="" width="800" height="450" loading="lazy">
                 <div class="card__body">
                   <p class="eyebrow">Article · 7 min</p>
                   <h3>Les réseaux de neurones</h3>

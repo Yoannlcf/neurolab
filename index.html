@@ -5,6 +5,7 @@
   <!-- Viewport : indispensable pour que les media queries fonctionnent sur mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NeuroLab : la data et l'intelligence artificielle expliquées simplement, avec un labo interactif.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <title>NeuroLab — L'IA expliquée sans équations</title>
 
   <!-- Polices de la charte (Google Fonts) -->
@@ -15,6 +16,7 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- defer : le script attend la fin de la lecture du HTML (étape 3 de l'énoncé) -->
   <script src="js/main.js" defer></script>
+  <script src="js/carrousel.js" defer></script>
 </head>
 <body>
 
@@ -65,24 +67,31 @@
             <a class="btn btn--ghost" href="pages/labo.html">Essayer le labo</a>
           </div>
         </div>
-        <!-- Visuel décoratif : dégradé CSS (voir .hero__visual dans style.css) -->
-        <div class="hero__visual" aria-hidden="true"></div>
+        <!-- Illustration décorative (alt vide) : les nœuds et les liaisons
+             sont animés en CSS à l'intérieur du fichier SVG -->
+        <img class="hero__visual" src="img/hero-reseau.svg" alt="" width="640" height="460">
       </div>
     </section>
 
     <!-- ================= CARROUSEL DES THÈMES ================= -->
-    <section class="section" aria-labelledby="titre-themes">
+    <section class="section carousel" aria-labelledby="titre-themes" aria-roledescription="carrousel">
       <div class="container">
         <div class="carousel__head">
           <div>
             <p class="eyebrow">À découvrir</p>
             <h2 id="titre-themes">Explorer les thèmes</h2>
           </div>
+          <div class="carousel__arrows">
+            <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Thème précédent">‹</button>
+            <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Thème suivant">›</button>
+          </div>
         </div>
 
+        <!-- La piste défile horizontalement (scroll-snap en CSS) ;
+             carrousel.js ajoute flèches, points et défilement automatique -->
         <ul class="carousel__track">
           <li class="card">
-            <div class="card__media card__media--1"></div>
+            <img class="card__img" src="img/theme-ia.svg" alt="" width="800" height="450" loading="lazy">
             <div class="card__body">
               <p class="eyebrow">Les bases</p>
               <h3>Qu’est-ce que l’IA ?</h3>
@@ -91,7 +100,7 @@
             </div>
           </li>
           <li class="card">
-            <div class="card__media card__media--2"></div>
+            <img class="card__img" src="img/theme-ml.svg" alt="" width="800" height="450" loading="lazy">
             <div class="card__body">
               <p class="eyebrow">Article</p>
               <h3>Le Machine Learning</h3>
@@ -100,7 +109,7 @@
             </div>
           </li>
           <li class="card">
-            <div class="card__media card__media--3"></div>
+            <img class="card__img" src="img/theme-reseaux.svg" alt="" width="800" height="450" loading="lazy">
             <div class="card__body">
               <p class="eyebrow">Article</p>
               <h3>Les réseaux de neurones</h3>
@@ -108,7 +117,36 @@
               <a class="card__link" href="pages/article-reseaux-neurones.html">Lire l’article →</a>
             </div>
           </li>
+          <li class="card">
+            <img class="card__img" src="img/theme-applications.svg" alt="" width="800" height="450" loading="lazy">
+            <div class="card__body">
+              <p class="eyebrow">Au quotidien</p>
+              <h3>L’IA autour de nous</h3>
+              <p class="card__text">Santé, transports, loisirs : un tableau pour comparer les usages.</p>
+              <a class="card__link" href="pages/applications.html">Comparer →</a>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__img" src="img/theme-labo.svg" alt="" width="800" height="450" loading="lazy">
+            <div class="card__body">
+              <p class="eyebrow">Labo</p>
+              <h3>Regrouper des points</h3>
+              <p class="card__text">Lancez l’algorithme k-means et regardez-le trouver les groupes.</p>
+              <a class="card__link" href="pages/labo.html">Expérimenter →</a>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__img" src="img/theme-quiz.svg" alt="" width="800" height="450" loading="lazy">
+            <div class="card__body">
+              <p class="eyebrow">Quiz</p>
+              <h3>Êtes-vous incollable ?</h3>
+              <p class="card__text">10 questions pour vérifier ce que vous avez retenu.</p>
+              <a class="card__link" href="pages/labo.html#titre-quiz">Faire le quiz →</a>
+            </div>
+          </li>
         </ul>
+
+        <div class="carousel__dots"></div>
       </div>
     </section>
 

@@ -204,6 +204,14 @@ button.chip:hover {
   background-color: var(--color-placeholder);
 }
 
+/* Image en haut d'une carte : remplit la zone sans se déformer */
+.card__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: var(--color-dark-2);
+}
+
 .card__body {
   display: flex;
   flex-direction: column;
@@ -377,14 +385,11 @@ button.chip:hover {
   gap: 12px;
 }
 
-/* Visuel décoratif du hero : deux halos de couleur sur fond bleu nuit */
+/* Illustration du hero (SVG animé) */
 .hero__visual {
   width: 100%;
-  height: 420px;
+  height: auto;                 /* garde les proportions de l'image */
   border-radius: var(--radius);
-  background: radial-gradient(circle at 70% 30%, rgba(108, 92, 231, 0.35), transparent 60%),
-              radial-gradient(circle at 25% 75%, rgba(0, 206, 201, 0.25), transparent 55%),
-              var(--color-dark-2);
 }
 
 /* Carrousel des thèmes */
@@ -419,13 +424,27 @@ button.chip:hover {
   color: var(--color-primary);
 }
 
+/* La piste défile horizontalement ; scroll-snap aligne toujours
+   une carte sur le bord gauche, à la souris comme au doigt */
 .carousel__track {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 2 * 24px) / 3);   /* 3 cartes visibles */
   gap: 24px;
   margin: 0;
-  padding: 0;
+  padding: 4px 0 20px;          /* laisse de la place à l'ombre des cartes */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;        /* barre de défilement masquée (Firefox) */
   list-style: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;                /* barre de défilement masquée (Chrome, Safari) */
+}
+
+.carousel__track > .card {
+  scroll-snap-align: start;
 }
 
 .carousel__dots {
@@ -451,7 +470,7 @@ button.chip:hover {
   background-color: var(--color-primary);
 }
 
-/* Couleurs des visuels provisoires des cartes (en attendant les images) */
+/* Couleurs de secours des anciens visuels de cartes */
 .card__media--1 { background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); }
 .card__media--2 { background: linear-gradient(135deg, var(--color-dark-2), var(--color-primary)); }
 .card__media--3 { background: linear-gradient(135deg, var(--color-accent), var(--color-dark-2)); }
@@ -612,18 +631,15 @@ button.chip:hover {
   .nav--open .nav__toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* Les colonnes s'empilent */
-  .hero__inner,
-  .carousel__track {
+  .hero__inner {
     grid-template-columns: 1fr;
     gap: 32px;
   }
 
-  .hero__visual {
-    height: 220px;
-  }
-
+  /* Une carte et demie visible : on comprend qu'on peut faire glisser */
   .carousel__track {
-    gap: 24px;
+    grid-auto-columns: 80%;
+    gap: 16px;
   }
 
   .stats {

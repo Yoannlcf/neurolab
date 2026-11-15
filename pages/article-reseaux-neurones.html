@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Neurones, poids et couches : le fonctionnement d'un réseau de neurones expliqué sans équations.">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
   <title>Les réseaux de neurones — NeuroLab</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +83,11 @@
 
           <h2>Des couches qui s’empilent</h2>
           <p>Un réseau de neurones organise les neurones en <strong>couches</strong>. La première reçoit les données (par exemple les pixels d’une image), la dernière donne la réponse (« chat » ou « chien »). Entre les deux, les <strong>couches cachées</strong> détectent des motifs de plus en plus complexes : des contours, puis des formes, puis des objets entiers.</p>
+
+          <figure class="diagram">
+            <img src="../img/schema-reseau.svg" alt="Schéma d’un réseau de neurones : une couche d’entrée, deux couches cachées et une couche de sortie, toutes reliées" width="800" height="380">
+            <figcaption>Chaque neurone d’une couche est relié à tous ceux de la couche suivante.</figcaption>
+          </figure>
           <p>Quand un réseau compte de nombreuses couches cachées, on parle de réseau « profond » : c’est l’origine du terme Deep Learning.</p>
 
           <h2>Comment le réseau apprend</h2>
