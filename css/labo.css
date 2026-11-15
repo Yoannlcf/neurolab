@@ -80,6 +80,13 @@
   border-color: var(--color-muted);
 }
 
+/* Bouton désactivé pendant l'animation de l'algorithme */
+.panel .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 
 /* ---------- Quiz ---------- */
 .quiz-wrap {
